@@ -57,7 +57,7 @@ export default function Header() {
                   {session.user?.name?.split(" ")[0] ?? "Mi cuenta"}
                 </Link>
                 <button
-                  onClick={() => signOut({ callbackUrl: "/" })}
+                  onClick={() => signOut({ callbackUrl: window.location.origin })}
                   className="flex items-center gap-1 text-sm text-brand-ivory/50 hover:text-red-400 transition-colors"
                   title="Cerrar sesión"
                 >
@@ -129,7 +129,7 @@ export default function Header() {
                       <button
                         onClick={() => {
                           setOpen(false);
-                          signOut({ callbackUrl: "/" });
+                          signOut({ callbackUrl: window.location.origin });
                         }}
                         className="flex items-center gap-2 text-base font-medium text-brand-ivory/50 hover:text-red-400 transition-colors text-left"
                       >
