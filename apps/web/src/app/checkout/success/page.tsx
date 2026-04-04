@@ -3,6 +3,7 @@ import { CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getStripeServer } from "@/lib/stripe";
 import { db } from "@/lib/db";
+import { ClearCart } from "./ClearCart";
 
 export default async function CheckoutSuccessPage({
   searchParams,
@@ -45,6 +46,7 @@ export default async function CheckoutSuccessPage({
   return (
     <div className="min-h-screen bg-brand-ivory flex items-center justify-center px-4">
       <div className="text-center max-w-md">
+        <ClearCart />
         <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-6">
           <CheckCircle className="h-8 w-8 text-green-600" />
         </div>

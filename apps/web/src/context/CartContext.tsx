@@ -8,6 +8,7 @@ import {
   useEffect,
   ReactNode,
 } from "react";
+import { useSession } from "next-auth/react";
 
 export type CartItem = {
   id: number;
@@ -26,34 +27,50 @@ type CartContextType = {
   totalPrice: number;
 };
 
-const STORAGE_KEY = "yeso_cart";
-
 const CartContext = createContext<CartContextType | null>(null);
 
+function storageKey(userId: string | undefined) {
+  return userId ? `yeso_cart_${userId}` : "yeso_cart_guest";
+}
+
 export function CartProvider({ children }: { children: ReactNode }) {
+  const { data: session } = useSession();
+  const userId = session?.user?.id;
+
   const [items, setItems] = useState<CartItem[]>([]);
-  const [hydrated, setHydrated] = useState(false);
+  const [currentKey, setCurrentKey] = useState<string | null>(null);
 
-  // Cargar del localStorage al montar
+  // Cuando cambia el usuario (login / logout) carga su carrito propio
   useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) setItems(JSON.parse(stored));
-    } catch {
-      // localStorage no disponible
-    }
-    setHydrated(true);
-  }, []);
+    const key = storageKey(userId);
+    if (key === currentKey) return; // nada cambió
 
-  // Guardar en localStorage cuando cambia el carrito
-  useEffect(() => {
-    if (!hydrated) return;
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
-    } catch {
-      // localStorage no disponible
+    // Guardar carrito actual antes de cambiar de usuario
+    if (currentKey) {
+      try {
+        localStorage.setItem(currentKey, JSON.stringify(items));
+      } catch { /* noop */ }
     }
-  }, [items, hydrated]);
+
+    // Cargar carrito del nuevo usuario
+    try {
+      const stored = localStorage.getItem(key);
+      setItems(stored ? JSON.parse(stored) : []);
+    } catch {
+      setItems([]);
+    }
+
+    setCurrentKey(key);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userId]);
+
+  // Persistir en localStorage cada vez que cambia el carrito
+  useEffect(() => {
+    if (!currentKey) return;
+    try {
+      localStorage.setItem(currentKey, JSON.stringify(items));
+    } catch { /* noop */ }
+  }, [items, currentKey]);
 
   const addItem = useCallback((item: Omit<CartItem, "quantity">) => {
     setItems((prev) => {

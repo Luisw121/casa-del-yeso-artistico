@@ -8,7 +8,7 @@ import { useCart } from "@/context/CartContext";
 
 export default function CartDrawer() {
   const router = useRouter();
-  const { items, removeItem, updateQuantity, clearCart, totalItems, totalPrice } = useCart();
+  const { items, removeItem, updateQuantity, clearCart, totalItems, totalPrice } = useCart(); // clearCart se usa en botón "Vaciar" y se llama desde success page
 
   async function handleCheckout() {
     const origin = window.location.origin;
@@ -33,7 +33,6 @@ export default function CartDrawer() {
 
     const data = await res.json();
     if (data.url) {
-      clearCart();
       router.push(data.url);
     }
   }
