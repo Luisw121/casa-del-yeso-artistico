@@ -11,12 +11,15 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        // La Casa del Yeso Artístico — Brand Colors
         brand: {
-          night: "#1A1A2E",    // Azul noche (primario)
-          gold: "#C9A96E",     // Dorado premium (acento)
-          ivory: "#F5F0EB",    // Blanco marfil (neutro)
+          night: "#1A1A2E",
+          gold: "#C9A96E",
+          ivory: "#F5F0EB",
         },
+      },
+      fontFamily: {
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        heading: ["var(--font-heading)", "Georgia", "serif"],
       },
     },
   },

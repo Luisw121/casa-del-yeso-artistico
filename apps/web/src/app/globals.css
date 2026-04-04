@@ -1,27 +1,57 @@
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@layer base {
+  .theme {
+    --font-heading: var(--font-heading);
+    --font-sans: var(--font-sans);
+  }
+  :root {
+    /* La Casa del Yeso Artístico — Brand tokens */
+    --brand-night: #1A1A2E;
+    --brand-gold: #C9A96E;
+    --brand-ivory: #F5F0EB;
+
+    /* Shadcn mapped to brand */
+    --background: oklch(0.967 0.007 60);      /* ivory */
+    --foreground: oklch(0.13 0.02 265);        /* night */
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.13 0.02 265);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.13 0.02 265);
+    --primary: oklch(0.13 0.02 265);           /* night */
+    --primary-foreground: oklch(0.967 0.007 60);
+    --secondary: oklch(0.75 0.07 65);          /* gold-ish */
+    --secondary-foreground: oklch(0.13 0.02 265);
+    --muted: oklch(0.94 0.005 60);
+    --muted-foreground: oklch(0.45 0.01 265);
+    --accent: oklch(0.75 0.07 65);             /* gold */
+    --accent-foreground: oklch(0.13 0.02 265);
+    --destructive: oklch(0.577 0.245 27.325);
+    --border: oklch(0.88 0.005 60);
+    --input: oklch(0.88 0.005 60);
+    --ring: oklch(0.75 0.07 65);
+    --radius: 0.5rem;
+  }
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  html {
+    @apply font-sans;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
   }
 }
