@@ -7,12 +7,12 @@ import Footer from "@/components/layout/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-inter",
 });
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
-  variable: "--font-heading",
+  variable: "--font-playfair",
 });
 
 export const metadata: Metadata = {

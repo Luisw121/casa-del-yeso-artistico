@@ -105,7 +105,7 @@ export default function HomePage() {
               render={<Link href="/servicios/techos-gypsum" />}
               size="lg"
               variant="outline"
-              className="border-brand-ivory/30 text-brand-ivory hover:bg-white/10 hover:border-brand-gold px-8"
+              className="border-brand-ivory/50 !bg-transparent text-brand-ivory hover:!bg-white/10 hover:border-brand-gold px-8"
             >
               Ver servicios
             </Button>

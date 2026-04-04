@@ -1,57 +1,64 @@
+@import "tailwindcss";
 @import "tw-animate-css";
-@import "shadcn/tailwind.css";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+@source "../../**/*.{ts,tsx}";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================
+   La Casa del Yeso Artístico — Brand Theme
+   ============================================ */
+@theme inline {
+  /* Brand colors */
+  --color-brand-night: #1A1A2E;
+  --color-brand-gold:  #C9A96E;
+  --color-brand-ivory: #F5F0EB;
+
+  /* Shadcn tokens mapped to brand */
+  --color-background:         #F5F0EB;
+  --color-foreground:         #1A1A2E;
+  --color-card:               #ffffff;
+  --color-card-foreground:    #1A1A2E;
+  --color-popover:            #ffffff;
+  --color-popover-foreground: #1A1A2E;
+  --color-primary:            #1A1A2E;
+  --color-primary-foreground: #F5F0EB;
+  --color-secondary:          #C9A96E;
+  --color-secondary-foreground: #1A1A2E;
+  --color-muted:              #ede8e3;
+  --color-muted-foreground:   #6b6460;
+  --color-accent:             #C9A96E;
+  --color-accent-foreground:  #1A1A2E;
+  --color-destructive:        #dc2626;
+  --color-border:             #ddd8d3;
+  --color-input:              #ddd8d3;
+  --color-ring:               #C9A96E;
+
+  /* Fonts */
+  --font-sans:    var(--font-inter);
+  --font-heading: var(--font-playfair);
+
+  /* Radius */
+  --radius: 0.5rem;
+  --radius-sm:  calc(var(--radius) - 4px);
+  --radius-md:  calc(var(--radius) - 2px);
+  --radius-lg:  var(--radius);
+  --radius-xl:  calc(var(--radius) + 4px);
 }
 
 @layer base {
-  .theme {
-    --font-heading: var(--font-heading);
-    --font-sans: var(--font-sans);
-  }
-  :root {
-    /* La Casa del Yeso Artístico — Brand tokens */
-    --brand-night: #1A1A2E;
-    --brand-gold: #C9A96E;
-    --brand-ivory: #F5F0EB;
-
-    /* Shadcn mapped to brand */
-    --background: oklch(0.967 0.007 60);      /* ivory */
-    --foreground: oklch(0.13 0.02 265);        /* night */
-    --card: oklch(1 0 0);
-    --card-foreground: oklch(0.13 0.02 265);
-    --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.13 0.02 265);
-    --primary: oklch(0.13 0.02 265);           /* night */
-    --primary-foreground: oklch(0.967 0.007 60);
-    --secondary: oklch(0.75 0.07 65);          /* gold-ish */
-    --secondary-foreground: oklch(0.13 0.02 265);
-    --muted: oklch(0.94 0.005 60);
-    --muted-foreground: oklch(0.45 0.01 265);
-    --accent: oklch(0.75 0.07 65);             /* gold */
-    --accent-foreground: oklch(0.13 0.02 265);
-    --destructive: oklch(0.577 0.245 27.325);
-    --border: oklch(0.88 0.005 60);
-    --input: oklch(0.88 0.005 60);
-    --ring: oklch(0.75 0.07 65);
-    --radius: 0.5rem;
-  }
   * {
-    @apply border-border outline-ring/50;
+    border-color: var(--color-border);
+    outline-color: color-mix(in srgb, var(--color-ring) 50%, transparent);
   }
   body {
-    @apply bg-background text-foreground font-sans antialiased;
-  }
-  html {
-    @apply font-sans;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading;
+    font-family: var(--font-heading), Georgia, serif;
   }
 }
