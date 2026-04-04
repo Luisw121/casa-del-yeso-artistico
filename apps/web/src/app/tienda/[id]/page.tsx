@@ -17,8 +17,9 @@ export default function ProductDetailPage() {
   const [quantity, setQuantity] = useState(1);
   const [added, setAdded] = useState(false);
 
-  const product = getProductById(Number(params.id));
-  if (!product) notFound();
+  const maybeProduct = getProductById(Number(params.id));
+  if (!maybeProduct) return notFound();
+  const product = maybeProduct;
 
   const inCart = items.find((i) => i.id === product.id);
 
