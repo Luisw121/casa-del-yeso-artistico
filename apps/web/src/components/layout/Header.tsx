@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import CartDrawer from "@/components/cart/CartDrawer";
 
 const navLinks = [
   { label: "Servicios", href: "/servicios/techos-gypsum" },
@@ -41,6 +42,7 @@ export default function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
+            <CartDrawer />
             <Button
               render={<Link href="/login" />}
               variant="ghost"

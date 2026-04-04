@@ -1,9 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ShoppingCart, Package } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { products, categories } from "@/lib/products";
+import { useCart } from "@/context/CartContext";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -13,93 +16,9 @@ const fadeUp = {
   }),
 };
 
-const categories = ["Todos", "Herramientas", "Materiales", "Artesanías"];
-
-const products = [
-  {
-    id: 1,
-    name: "Espátula profesional",
-    category: "Herramientas",
-    price: 12.50,
-    description: "Espátula de acero inoxidable para aplicación de yeso y masilla.",
-    stock: true,
-  },
-  {
-    id: 2,
-    name: "Llana de yesero",
-    category: "Herramientas",
-    price: 18.00,
-    description: "Llana rectangular de aluminio para extender yeso en superficies.",
-    stock: true,
-  },
-  {
-    id: 3,
-    name: "Nivel de burbuja 60cm",
-    category: "Herramientas",
-    price: 22.00,
-    description: "Nivel de aluminio con tres burbujas para trabajo horizontal y vertical.",
-    stock: true,
-  },
-  {
-    id: 4,
-    name: "Taladro percutor",
-    category: "Herramientas",
-    price: 85.00,
-    description: "Taladro de primer uso, ideal para instalaciones en gypsum y mampostería.",
-    stock: true,
-  },
-  {
-    id: 5,
-    name: "Saco de yeso artístico 25kg",
-    category: "Materiales",
-    price: 15.00,
-    description: "Yeso de alta pureza para moldes, esculturas y acabados decorativos.",
-    stock: true,
-  },
-  {
-    id: 6,
-    name: "Cemento blanco 25kg",
-    category: "Materiales",
-    price: 20.00,
-    description: "Cemento blanco para juntas, pegado de cerámica y acabados finos.",
-    stock: true,
-  },
-  {
-    id: 7,
-    name: "Malla de fibra para gypsum",
-    category: "Materiales",
-    price: 8.50,
-    description: "Malla autoadhesiva para reparación de grietas en paredes y cielos.",
-    stock: true,
-  },
-  {
-    id: 8,
-    name: "Figura ángel decorativo",
-    category: "Artesanías",
-    price: 35.00,
-    description: "Figura artesanal de ángel elaborada en yeso artístico, acabado blanco.",
-    stock: true,
-  },
-  {
-    id: 9,
-    name: "Moldura clásica 2m",
-    category: "Artesanías",
-    price: 12.00,
-    description: "Moldura decorativa en yeso para techos y paredes, estilo clásico europeo.",
-    stock: true,
-  },
-  {
-    id: 10,
-    name: "Florero artesanal",
-    category: "Artesanías",
-    price: 28.00,
-    description: "Florero elaborado a mano en yeso, disponible en varios acabados.",
-    stock: false,
-  },
-];
-
 export default function TiendaPage() {
   const [activeCategory, setActiveCategory] = useState("Todos");
+  const { addItem } = useCart();
 
   const filtered = activeCategory === "Todos"
     ? products
@@ -165,16 +84,18 @@ export default function TiendaPage() {
                 variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} custom={i % 4}
                 className="bg-white rounded-2xl border border-brand-night/5 shadow-sm overflow-hidden group hover:shadow-md transition-shadow"
               >
-                {/* Product image placeholder */}
-                <div className="h-44 bg-gradient-to-br from-brand-night/5 to-brand-gold/10 flex items-center justify-center">
+                {/* Product image — click to detail */}
+                <Link href={`/tienda/${product.id}`} className="block h-44 bg-gradient-to-br from-brand-night/5 to-brand-gold/10 flex items-center justify-center hover:opacity-90 transition-opacity">
                   <Package className="h-12 w-12 text-brand-gold/40" />
-                </div>
+                </Link>
 
                 <div className="p-5">
                   <div className="flex items-start justify-between gap-2 mb-2">
-                    <h3 className="font-heading text-base font-bold text-brand-night leading-snug">
-                      {product.name}
-                    </h3>
+                    <Link href={`/tienda/${product.id}`} className="hover:text-brand-gold transition-colors">
+                      <h3 className="font-heading text-base font-bold text-brand-night leading-snug">
+                        {product.name}
+                      </h3>
+                    </Link>
                     {!product.stock && (
                       <Badge className="shrink-0 bg-red-100 text-red-600 border-red-200 text-xs">
                         Agotado
@@ -190,6 +111,7 @@ export default function TiendaPage() {
                     </p>
                     <button
                       disabled={!product.stock}
+                      onClick={() => addItem({ id: product.id, name: product.name, price: product.price })}
                       className="flex items-center gap-1.5 text-xs font-semibold bg-brand-gold text-brand-night px-3 py-1.5 rounded-lg hover:bg-brand-gold/90 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
                     >
                       <ShoppingCart className="h-3.5 w-3.5" />
