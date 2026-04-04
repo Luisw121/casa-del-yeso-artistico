@@ -35,7 +35,7 @@ export async function POST(req: Request) {
 
     const resend = new Resend(process.env.RESEND_API_KEY ?? "");
     await resend.emails.send({
-      from: "La Casa del Yeso Artístico <noreply@casadelyesoartistico.com>",
+      from: "La Casa del Yeso Artístico <onboarding@resend.dev>",
       to: email,
       subject: "Recupera tu contraseña",
       html: `
