@@ -32,11 +32,14 @@ export default function ProductDetailPage() {
   }
 
   async function handleBuyNow() {
+    const origin = window.location.origin;
     const res = await fetch("/api/checkout", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         items: [{ name: product.name, price: product.price, quantity }],
+        successUrl: `${origin}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancelUrl: `${origin}/tienda/${product.id}`,
       }),
     });
 

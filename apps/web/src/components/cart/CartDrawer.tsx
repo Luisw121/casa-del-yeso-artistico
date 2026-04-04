@@ -11,6 +11,7 @@ export default function CartDrawer() {
   const { items, removeItem, updateQuantity, clearCart, totalItems, totalPrice } = useCart();
 
   async function handleCheckout() {
+    const origin = window.location.origin;
     const res = await fetch("/api/checkout", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -20,6 +21,8 @@ export default function CartDrawer() {
           price: i.price,
           quantity: i.quantity,
         })),
+        successUrl: `${origin}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancelUrl: `${origin}/tienda`,
       }),
     });
 
