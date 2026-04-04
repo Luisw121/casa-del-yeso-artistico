@@ -3,8 +3,6 @@ import { db } from "@/lib/db";
 import { Resend } from "resend";
 import crypto from "crypto";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(req: Request) {
   try {
     const { email } = await req.json();
@@ -35,6 +33,7 @@ export async function POST(req: Request) {
 
     const resetUrl = `${baseUrl}/reset-password?token=${token}`;
 
+    const resend = new Resend(process.env.RESEND_API_KEY ?? "");
     await resend.emails.send({
       from: "La Casa del Yeso Artístico <noreply@casadelyesoartistico.com>",
       to: email,
