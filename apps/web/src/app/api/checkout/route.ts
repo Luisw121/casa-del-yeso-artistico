@@ -1,8 +1,9 @@
 import { NextResponse } from "next/server";
-import { stripe } from "@/lib/stripe";
+import { getStripeServer } from "@/lib/stripe";
 
 export async function POST(req: Request) {
   try {
+    const stripe = getStripeServer();
     const { items, successUrl, cancelUrl } = await req.json();
 
     const session = await stripe.checkout.sessions.create({
