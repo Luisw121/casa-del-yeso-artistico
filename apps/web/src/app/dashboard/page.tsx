@@ -2,7 +2,7 @@ import { auth } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
 import Link from "next/link";
-import { ShoppingBag, User, ArrowRight, Package } from "lucide-react";
+import { ShoppingBag, User, ArrowRight, Package, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default async function DashboardPage() {
@@ -109,6 +109,13 @@ export default async function DashboardPage() {
                     <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${statusColors[order.status]}`}>
                       {statusLabels[order.status]}
                     </span>
+                    <Link
+                      href={`/dashboard/invoice/${order.id}`}
+                      className="text-brand-night/30 hover:text-brand-gold transition-colors"
+                      title="Ver factura"
+                    >
+                      <FileText className="h-4 w-4" />
+                    </Link>
                   </div>
                 </div>
               ))}
