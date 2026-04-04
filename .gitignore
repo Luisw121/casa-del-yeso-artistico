@@ -41,3 +41,4 @@ Thumbs.db
 # Prisma
 apps/web/prisma/*.db
 apps/web/prisma/*.db-journal
+apps/web/src/generated/
