@@ -95,15 +95,17 @@ enum OrderStatus {
 }
 
 model Product {
-  id          String   @id @default(cuid())
-  name        String
-  description String?  @db.Text
-  price       Float
-  imageUrl    String?
-  category    String?
-  inStock     Boolean  @default(true)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id              String   @id @default(cuid())
+  name            String
+  description     String?  @db.Text
+  longDescription String?  @db.Text
+  details         String[]
+  price           Float
+  imageUrl        String?
+  category        String?
+  inStock         Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
 
   orderItems OrderItem[]
 

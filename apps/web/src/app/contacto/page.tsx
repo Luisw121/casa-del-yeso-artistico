@@ -51,14 +51,18 @@ export default function ContactoPage() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setStatus("loading");
-    // Por ahora abre el cliente de email — integraremos Resend/email server-side después
-    const subject = encodeURIComponent(`Consulta de ${form.name}`);
-    const body = encodeURIComponent(
-      `Nombre: ${form.name}\nEmail: ${form.email}\nTeléfono: ${form.phone}\n\nMensaje:\n${form.message}`
-    );
-    window.location.href = `mailto:casadelyesoartistico@hotmail.com?subject=${subject}&body=${body}`;
-    setStatus("success");
-    setForm({ name: "", email: "", phone: "", message: "" });
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error("Error del servidor");
+      setStatus("success");
+      setForm({ name: "", email: "", phone: "", message: "" });
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
@@ -152,13 +156,27 @@ export default function ContactoPage() {
                     <p className="text-2xl mb-2">✓</p>
                     <p className="font-semibold text-brand-night">¡Mensaje enviado!</p>
                     <p className="text-sm text-brand-night/60 mt-1">
-                      Se abrió tu cliente de email. También puedes escribirnos por WhatsApp.
+                      Te responderemos pronto. También puedes escribirnos por WhatsApp.
                     </p>
                     <button
                       onClick={() => setStatus("idle")}
                       className="mt-4 text-sm text-brand-gold hover:underline"
                     >
                       Enviar otro mensaje
+                    </button>
+                  </div>
+                ) : status === "error" ? (
+                  <div className="text-center py-10">
+                    <p className="text-2xl mb-2">✗</p>
+                    <p className="font-semibold text-brand-night">No se pudo enviar</p>
+                    <p className="text-sm text-brand-night/60 mt-1">
+                      Hubo un problema. Por favor escríbenos directamente por WhatsApp.
+                    </p>
+                    <button
+                      onClick={() => setStatus("idle")}
+                      className="mt-4 text-sm text-brand-gold hover:underline"
+                    >
+                      Intentar de nuevo
                     </button>
                   </div>
                 ) : (
