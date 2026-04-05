@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { useSession, signOut } from "next-auth/react";
 import { Menu, User, LogOut, LayoutDashboard, ShieldCheck } from "lucide-react";
@@ -23,12 +24,21 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-brand-night text-brand-ivory shadow-md">
+      {/* Borde superior sublimado */}
+      <div className="h-[2px] bg-gradient-to-r from-transparent via-brand-gold to-transparent opacity-80" />
+
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="font-heading text-xl font-bold tracking-wide text-brand-ivory">
-            La Casa del{" "}
-            <span className="text-brand-gold">Yeso Artístico</span>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/logo.png"
+              alt="La Casa del Yeso Artístico"
+              width={140}
+              height={48}
+              className="h-12 w-auto object-contain"
+              priority
+            />
           </Link>
 
           {/* Desktop nav */}

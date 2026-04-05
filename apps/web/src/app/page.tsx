@@ -94,11 +94,11 @@ export default function HomePage() {
             className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Button
-              render={<Link href="/contacto" />}
+              render={<Link href="/tienda" />}
               size="lg"
               className="bg-brand-gold text-brand-night font-semibold hover:bg-brand-gold/90 px-8"
             >
-              Solicitar cotización
+              Tienda
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <Button
@@ -107,14 +107,14 @@ export default function HomePage() {
               variant="outline"
               className="border-brand-ivory/50 !bg-transparent text-brand-ivory hover:!bg-white/10 hover:border-brand-gold px-8"
             >
-              Ver servicios
+              Servicios
             </Button>
           </motion.div>
         </div>
       </section>
 
       {/* Features */}
-      <section className="bg-brand-ivory py-20">
+      <section className="bg-[#0D0D1A] py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={fadeUp}
@@ -124,10 +124,10 @@ export default function HomePage() {
             custom={0}
             className="text-center mb-14"
           >
-            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-brand-night">
+            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-brand-ivory">
               ¿Por qué elegirnos?
             </h2>
-            <p className="mt-3 text-brand-night/60 max-w-xl mx-auto">
+            <p className="mt-3 text-brand-ivory/50 max-w-xl mx-auto">
               Cada detalle importa. Nuestro compromiso es con la excelencia en
               cada obra.
             </p>
@@ -142,15 +142,15 @@ export default function HomePage() {
                 whileInView="show"
                 viewport={{ once: true }}
                 custom={i + 1}
-                className="bg-white rounded-2xl p-8 shadow-sm border border-brand-night/5 hover:shadow-md transition-shadow"
+                className="bg-[#111122] rounded-2xl p-8 border border-brand-ivory/5 hover:border-brand-gold/20 transition-colors"
               >
                 <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-brand-gold/10 mb-5">
                   <feature.icon className="h-6 w-6 text-brand-gold" />
                 </div>
-                <h3 className="font-heading text-xl font-bold text-brand-night mb-2">
+                <h3 className="font-heading text-xl font-bold text-brand-ivory mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-brand-night/60 text-sm leading-relaxed">
+                <p className="text-brand-ivory/50 text-sm leading-relaxed">
                   {feature.description}
                 </p>
               </motion.div>
@@ -160,7 +160,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA Banner */}
-      <section className="bg-brand-gold">
+      <section className="bg-brand-night border-t border-brand-gold/15">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 text-center">
           <motion.h2
             variants={fadeUp}
@@ -168,7 +168,7 @@ export default function HomePage() {
             whileInView="show"
             viewport={{ once: true }}
             custom={0}
-            className="font-heading text-3xl sm:text-4xl font-bold text-brand-night"
+            className="font-heading text-3xl sm:text-4xl font-bold text-brand-ivory"
           >
             ¿Listo para transformar tu espacio?
           </motion.h2>
@@ -178,7 +178,7 @@ export default function HomePage() {
             whileInView="show"
             viewport={{ once: true }}
             custom={1}
-            className="mt-3 text-brand-night/70 max-w-xl mx-auto"
+            className="mt-3 text-brand-ivory/50 max-w-xl mx-auto"
           >
             Contáctanos hoy y recibe una cotización gratuita sin compromiso.
           </motion.p>
@@ -193,7 +193,7 @@ export default function HomePage() {
             <Button
               render={<Link href="/contacto" />}
               size="lg"
-              className="bg-brand-night text-brand-ivory hover:bg-brand-night/90 font-semibold px-10"
+              className="bg-brand-gold text-brand-night font-semibold hover:bg-brand-gold/90 px-10"
             >
               Contactar ahora
               <ArrowRight className="ml-2 h-4 w-4" />
