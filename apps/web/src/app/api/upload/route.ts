@@ -26,7 +26,14 @@ export async function POST(request: Request) {
   const ext = file.name.split(".").pop() ?? "jpg";
   const filename = `products/${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
 
-  const blob = await put(filename, file, { access: "public" });
-
-  return NextResponse.json({ url: blob.url });
+  try {
+    const blob = await put(filename, file, { access: "public" });
+    return NextResponse.json({ url: blob.url });
+  } catch (err) {
+    console.error("Vercel Blob error:", err);
+    return NextResponse.json(
+      { error: err instanceof Error ? err.message : "Error al subir a Vercel Blob" },
+      { status: 500 }
+    );
+  }
 }

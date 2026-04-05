@@ -38,8 +38,8 @@ export default function ImageUpload({ currentUrl, onChange }: ImageUploadProps) 
 
       setPreview(data.url);
       onChange(data.url);
-    } catch {
-      setError("Error de conexión al subir la imagen");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Error de conexión al subir la imagen");
       setPreview(currentUrl);
     } finally {
       setUploading(false);

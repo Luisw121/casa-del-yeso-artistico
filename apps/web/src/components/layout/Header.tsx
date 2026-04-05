@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useSession, signOut } from "next-auth/react";
-import { Menu, User, LogOut, LayoutDashboard } from "lucide-react";
+import { Menu, User, LogOut, LayoutDashboard, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import CartDrawer from "@/components/cart/CartDrawer";
@@ -19,6 +19,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const { data: session, status } = useSession();
   const isLoggedIn = status === "authenticated";
+  const isAdmin = (session?.user as { role?: string })?.role === "ADMIN";
 
   return (
     <header className="sticky top-0 z-50 bg-brand-night text-brand-ivory shadow-md">
@@ -49,6 +50,15 @@ export default function Header() {
 
             {isLoggedIn ? (
               <div className="flex items-center gap-2">
+                {isAdmin && (
+                  <Link
+                    href="/admin"
+                    className="flex items-center gap-1.5 text-xs font-semibold bg-brand-gold text-brand-night px-3 py-1.5 rounded-lg hover:bg-brand-gold/90 transition-colors"
+                  >
+                    <ShieldCheck className="h-3.5 w-3.5" />
+                    Admin
+                  </Link>
+                )}
                 <Link
                   href="/dashboard"
                   className="flex items-center gap-1.5 text-sm font-medium text-brand-ivory/80 hover:text-brand-gold transition-colors"
@@ -118,6 +128,16 @@ export default function Header() {
                   <hr className="border-brand-gold/20 my-2" />
                   {isLoggedIn ? (
                     <>
+                      {isAdmin && (
+                        <Link
+                          href="/admin"
+                          onClick={() => setOpen(false)}
+                          className="flex items-center gap-2 text-base font-semibold text-brand-gold hover:text-brand-gold/80 transition-colors"
+                        >
+                          <ShieldCheck className="h-4 w-4" />
+                          Panel Admin
+                        </Link>
+                      )}
                       <Link
                         href="/dashboard"
                         onClick={() => setOpen(false)}
