@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion, type Variants, type Easing } from "framer-motion";
+import { useSession } from "next-auth/react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Star, ShieldCheck, Clock } from "lucide-react";
@@ -37,17 +39,23 @@ const features = [
 ];
 
 export default function HomePage() {
+  const { status } = useSession();
+  const isLoggedIn = status === "authenticated";
+
   return (
     <>
       {/* Hero */}
       <section className="relative bg-brand-night overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 25% 50%, #C9A96E 0%, transparent 50%), radial-gradient(circle at 75% 20%, #C9A96E 0%, transparent 40%)",
-          }}
-        />
+        {/* Logo sublimado de fondo */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <Image
+            src="/logo.png"
+            alt=""
+            width={700}
+            height={500}
+            className="object-contain opacity-[0.04] select-none"
+          />
+        </div>
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 lg:py-36 text-center">
           <motion.div
@@ -96,7 +104,7 @@ export default function HomePage() {
             <Button
               render={<Link href="/tienda" />}
               size="lg"
-              className="bg-brand-gold text-brand-night font-semibold hover:bg-brand-gold/90 px-8"
+              className="bg-brand-ivory text-brand-night font-semibold hover:bg-white px-8"
             >
               Tienda
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -105,11 +113,28 @@ export default function HomePage() {
               render={<Link href="/servicios/techos-gypsum" />}
               size="lg"
               variant="outline"
-              className="border-brand-ivory/50 !bg-transparent text-brand-ivory hover:!bg-white/10 hover:border-brand-gold px-8"
+              className="border-brand-ivory/40 !bg-transparent text-brand-ivory hover:!bg-white/10 hover:border-white px-8"
             >
               Servicios
             </Button>
           </motion.div>
+
+          {!isLoggedIn && (
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              animate="show"
+              custom={4}
+              className="mt-5"
+            >
+              <Link
+                href="/login"
+                className="inline-flex items-center gap-2 border border-brand-ivory/20 text-brand-ivory/70 hover:text-white hover:border-white/50 text-sm font-medium px-6 py-2.5 rounded-full transition-all hover:bg-white/5"
+              >
+                Iniciar sesión
+              </Link>
+            </motion.div>
+          )}
         </div>
       </section>
 

@@ -11,7 +11,6 @@ import CartDrawer from "@/components/cart/CartDrawer";
 
 const navLinks = [
   { label: "Servicios", href: "/servicios/techos-gypsum" },
-  { label: "Tienda", href: "/tienda" },
   { label: "Nosotros", href: "/nosotros" },
   { label: "Contacto", href: "/contacto" },
 ];
@@ -85,23 +84,14 @@ export default function Header() {
                 </button>
               </div>
             ) : (
-              <>
-                <Button
-                  render={<Link href="/login" />}
-                  variant="ghost"
-                  size="sm"
-                  className="text-brand-ivory hover:text-brand-gold hover:bg-white/10"
-                >
-                  Iniciar sesión
-                </Button>
-                <Button
-                  render={<Link href="/contacto" />}
-                  size="sm"
-                  className="bg-brand-gold text-brand-night font-semibold hover:bg-brand-gold/90"
-                >
-                  Cotizar
-                </Button>
-              </>
+              <Button
+                render={<Link href="/login" />}
+                variant="ghost"
+                size="sm"
+                className="text-brand-ivory hover:text-brand-gold hover:bg-white/10"
+              >
+                Iniciar sesión
+              </Button>
             )}
           </div>
 
@@ -168,21 +158,13 @@ export default function Header() {
                       </button>
                     </>
                   ) : (
-                    <>
-                      <Link
-                        href="/login"
-                        onClick={() => setOpen(false)}
-                        className="text-base font-medium text-brand-ivory/80 hover:text-brand-gold transition-colors"
-                      >
-                        Iniciar sesión
-                      </Link>
-                      <Button
-                        render={<Link href="/contacto" onClick={() => setOpen(false)} />}
-                        className="bg-brand-gold text-brand-night font-semibold hover:bg-brand-gold/90 w-full"
-                      >
-                        Cotizar
-                      </Button>
-                    </>
+                    <Link
+                      href="/login"
+                      onClick={() => setOpen(false)}
+                      className="text-base font-medium text-brand-ivory/80 hover:text-brand-gold transition-colors"
+                    >
+                      Iniciar sesión
+                    </Link>
                   )}
                 </nav>
               </SheetContent>
