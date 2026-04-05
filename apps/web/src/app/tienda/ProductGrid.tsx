@@ -1,12 +1,10 @@
 "use client";
 
-"use client";
-
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ShoppingCart, Package } from "lucide-react";
+import { ShoppingCart, Package, Search, X } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { useCart } from "@/context/CartContext";
 
@@ -37,15 +35,49 @@ export default function ProductGrid({
   categories: string[];
 }) {
   const [activeCategory, setActiveCategory] = useState("Todos");
+  const [query, setQuery] = useState("");
   const { addItem } = useCart();
 
-  const filtered =
-    activeCategory === "Todos"
-      ? products
-      : products.filter((p) => p.category === activeCategory);
+  const filtered = products.filter((p) => {
+    const matchCategory = activeCategory === "Todos" || p.category === activeCategory;
+    const q = query.toLowerCase().trim();
+    const matchSearch =
+      !q ||
+      p.name.toLowerCase().includes(q) ||
+      (p.description ?? "").toLowerCase().includes(q) ||
+      (p.category ?? "").toLowerCase().includes(q);
+    return matchCategory && matchSearch;
+  });
 
   return (
     <>
+      {/* Search bar */}
+      <motion.div
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        custom={0}
+        className="relative mb-6"
+      >
+        <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-brand-night/40 pointer-events-none" />
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Buscar productos..."
+          className="w-full bg-white border border-brand-night/10 rounded-xl pl-11 pr-10 py-3 text-sm text-brand-night placeholder:text-brand-night/40 focus:outline-none focus:ring-2 focus:ring-brand-gold/40 focus:border-brand-gold transition-colors"
+        />
+        {query && (
+          <button
+            onClick={() => setQuery("")}
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-brand-night/30 hover:text-brand-night transition-colors"
+          >
+            <X className="h-4 w-4" />
+          </button>
+        )}
+      </motion.div>
+
       {/* Filter tabs */}
       <motion.div
         variants={fadeUp}
@@ -142,7 +174,7 @@ export default function ProductGrid({
 
       {filtered.length === 0 && (
         <p className="text-center text-brand-night/40 py-16">
-          No hay productos en esta categoría.
+          {query ? `No se encontraron productos para "${query}"` : "No hay productos en esta categoría."}
         </p>
       )}
     </>
