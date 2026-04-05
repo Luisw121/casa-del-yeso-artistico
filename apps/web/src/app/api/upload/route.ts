@@ -26,8 +26,12 @@ export async function POST(request: Request) {
   const ext = file.name.split(".").pop() ?? "jpg";
   const filename = `products/${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
 
+  const token =
+    process.env.BLOBYESOIMAGES_READ_WRITE_TOKEN ??
+    process.env.BLOB_READ_WRITE_TOKEN;
+
   try {
-    const blob = await put(filename, file, { access: "public" });
+    const blob = await put(filename, file, { access: "public", token });
     return NextResponse.json({ url: blob.url });
   } catch (err) {
     console.error("Vercel Blob error:", err);
