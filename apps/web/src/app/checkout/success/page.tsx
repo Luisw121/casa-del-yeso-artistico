@@ -74,7 +74,7 @@ export default async function CheckoutSuccessPage({
           <Button
             render={<Link href="/dashboard" />}
             variant="outline"
-            className="border-brand-night/20 text-brand-night hover:bg-brand-night/5"
+            className="border-brand-night text-brand-night hover:bg-brand-night hover:text-brand-ivory font-semibold"
           >
             Ver mis pedidos
           </Button>

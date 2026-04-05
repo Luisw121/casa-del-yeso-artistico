@@ -36,7 +36,6 @@ export default function ProductGrid({
 }) {
   const [activeCategory, setActiveCategory] = useState("Todos");
   const [query, setQuery] = useState("");
-  const [searchFocused, setSearchFocused] = useState(false);
   const { addItem } = useCart();
 
   const filtered = products.filter((p) => {
@@ -65,9 +64,6 @@ export default function ProductGrid({
         <input
           type="text"
           autoComplete="off"
-          readOnly={!searchFocused}
-          onFocus={() => setSearchFocused(true)}
-          onBlur={() => setSearchFocused(false)}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Buscar productos..."
