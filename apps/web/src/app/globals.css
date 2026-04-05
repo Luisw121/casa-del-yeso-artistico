@@ -15,23 +15,23 @@
   --color-brand-ivory: #F5F0EB;
 
   /* Shadcn tokens mapped to brand — Dark theme */
-  --color-background:         #0D0D1A;
+  --color-background:         #1C1C2E;
   --color-foreground:         #F5F0EB;
-  --color-card:               #1A1A2E;
+  --color-card:               #26263D;
   --color-card-foreground:    #F5F0EB;
-  --color-popover:            #1A1A2E;
+  --color-popover:            #26263D;
   --color-popover-foreground: #F5F0EB;
   --color-primary:            #C9A96E;
-  --color-primary-foreground: #0D0D1A;
-  --color-secondary:          #23233A;
+  --color-primary-foreground: #1C1C2E;
+  --color-secondary:          #30304A;
   --color-secondary-foreground: #F5F0EB;
-  --color-muted:              #1F1F33;
-  --color-muted-foreground:   #9E9AB0;
+  --color-muted:              #2B2B42;
+  --color-muted-foreground:   #A8A4BC;
   --color-accent:             #C9A96E;
-  --color-accent-foreground:  #0D0D1A;
+  --color-accent-foreground:  #1C1C2E;
   --color-destructive:        #ef4444;
-  --color-border:             #2A2A42;
-  --color-input:              #2A2A42;
+  --color-border:             #38385A;
+  --color-input:              #38385A;
   --color-ring:               #C9A96E;
 
   /* Fonts */
