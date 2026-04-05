@@ -1,6 +1,8 @@
 import { db } from "@/lib/db";
 import ProductGrid from "./ProductGrid";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Tienda",
 };
