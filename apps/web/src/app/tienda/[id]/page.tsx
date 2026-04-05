@@ -24,6 +24,5 @@ export default async function ProductDetailPage({
     select: { id: true, name: true, price: true },
   });
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return <ProductDetail product={product as any} related={related} />;
+  return <ProductDetail product={product} related={related} />;
 }

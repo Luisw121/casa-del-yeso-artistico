@@ -31,8 +31,7 @@ export default async function EditarProductoPage({
       </div>
 
       <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
-        {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-        <ProductForm product={product as any} />
+        <ProductForm product={product} />
       </div>
     </div>
   );
