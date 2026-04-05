@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { ShoppingCart, ArrowLeft, Package, Check, Minus, Plus } from "lucide-react";
@@ -17,6 +18,7 @@ type Product = {
   description: string | null;
   longDescription: string | null;
   details: string[];
+  imageUrl: string | null;
   inStock: boolean;
 };
 
@@ -24,6 +26,7 @@ type RelatedProduct = {
   id: string;
   name: string;
   price: number;
+  imageUrl: string | null;
 };
 
 export default function ProductDetail({
@@ -86,9 +89,19 @@ export default function ProductDetail({
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-white rounded-2xl border border-brand-night/5 shadow-sm h-72 md:h-full min-h-72 flex items-center justify-center"
+            className="relative bg-white rounded-2xl border border-brand-night/5 shadow-sm h-72 md:h-full min-h-72 overflow-hidden flex items-center justify-center"
           >
-            <Package className="h-20 w-20 text-brand-gold/30" />
+            {product.imageUrl ? (
+              <Image
+                src={product.imageUrl}
+                alt={product.name}
+                fill
+                className="object-cover"
+                unoptimized
+              />
+            ) : (
+              <Package className="h-20 w-20 text-brand-gold/30" />
+            )}
           </motion.div>
 
           {/* Info */}
@@ -206,8 +219,12 @@ export default function ProductDetail({
                   href={`/tienda/${p.id}`}
                   className="bg-white rounded-2xl border border-brand-night/5 shadow-sm p-5 hover:shadow-md transition-shadow group"
                 >
-                  <div className="h-28 bg-gradient-to-br from-brand-night/5 to-brand-gold/10 rounded-xl flex items-center justify-center mb-4">
-                    <Package className="h-8 w-8 text-brand-gold/40" />
+                  <div className="relative h-28 bg-gradient-to-br from-brand-night/5 to-brand-gold/10 rounded-xl overflow-hidden flex items-center justify-center mb-4">
+                    {p.imageUrl ? (
+                      <Image src={p.imageUrl} alt={p.name} fill className="object-cover" unoptimized />
+                    ) : (
+                      <Package className="h-8 w-8 text-brand-gold/40" />
+                    )}
                   </div>
                   <p className="font-heading font-bold text-brand-night text-sm group-hover:text-brand-gold transition-colors">
                     {p.name}

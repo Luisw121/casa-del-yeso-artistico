@@ -4,6 +4,7 @@ import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { Plus, Trash2, Loader2 } from "lucide-react";
 import { createProduct, updateProduct } from "@/app/admin/_actions/products";
+import ImageUpload from "./ImageUpload";
 
 type ProductData = {
   id?: string;
@@ -25,6 +26,7 @@ export default function ProductForm({ product }: { product?: ProductData }) {
   const [error, setError] = useState<string | null>(null);
   const [details, setDetails] = useState<string[]>(product?.details ?? [""]);
   const [inStock, setInStock] = useState(product?.inStock ?? true);
+  const [imageUrl, setImageUrl] = useState<string | null>(product?.imageUrl ?? null);
 
   function addDetail() {
     setDetails((d) => [...d, ""]);
@@ -46,6 +48,7 @@ export default function ProductForm({ product }: { product?: ProductData }) {
     // Replace the details textarea with computed details
     formData.set("details", details.join("\n"));
     formData.set("inStock", String(inStock));
+    formData.set("imageUrl", imageUrl ?? "");
 
     startTransition(async () => {
       try {
@@ -150,18 +153,12 @@ export default function ProductForm({ product }: { product?: ProductData }) {
           />
         </div>
 
-        {/* URL imagen */}
+        {/* Imagen */}
         <div className="md:col-span-2">
           <label className="block text-sm font-medium text-brand-night mb-1.5">
-            URL de imagen (opcional)
+            Imagen del producto
           </label>
-          <input
-            type="url"
-            name="imageUrl"
-            defaultValue={product?.imageUrl ?? ""}
-            placeholder="https://..."
-            className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-brand-night focus:outline-none focus:ring-2 focus:ring-brand-gold/40 focus:border-brand-gold"
-          />
+          <ImageUpload currentUrl={imageUrl} onChange={setImageUrl} />
         </div>
       </div>
 

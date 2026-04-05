@@ -14,6 +14,7 @@ export default async function TiendaPage() {
       category: true,
       price: true,
       description: true,
+      imageUrl: true,
       inStock: true,
     },
   });

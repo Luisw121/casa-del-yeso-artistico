@@ -1,7 +1,10 @@
 "use client";
 
+"use client";
+
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ShoppingCart, Package } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -13,6 +16,7 @@ type Product = {
   category: string | null;
   price: number;
   description: string | null;
+  imageUrl: string | null;
   inStock: boolean;
 };
 
@@ -80,9 +84,21 @@ export default function ProductGrid({
           >
             <Link
               href={`/tienda/${product.id}`}
-              className="block h-44 bg-gradient-to-br from-brand-night/5 to-brand-gold/10 flex items-center justify-center hover:opacity-90 transition-opacity"
+              className="block relative h-44 bg-gradient-to-br from-brand-night/5 to-brand-gold/10 overflow-hidden hover:opacity-90 transition-opacity"
             >
-              <Package className="h-12 w-12 text-brand-gold/40" />
+              {product.imageUrl ? (
+                <Image
+                  src={product.imageUrl}
+                  alt={product.name}
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+              ) : (
+                <div className="h-full flex items-center justify-center">
+                  <Package className="h-12 w-12 text-brand-gold/40" />
+                </div>
+              )}
             </Link>
 
             <div className="p-5">

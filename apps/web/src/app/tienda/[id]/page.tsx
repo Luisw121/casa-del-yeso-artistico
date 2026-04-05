@@ -21,7 +21,7 @@ export default async function ProductDetailPage({
   const related = await db.product.findMany({
     where: { category: product.category, id: { not: product.id }, inStock: true },
     take: 3,
-    select: { id: true, name: true, price: true },
+    select: { id: true, name: true, price: true, imageUrl: true },
   });
 
   return <ProductDetail product={product} related={related} />;
