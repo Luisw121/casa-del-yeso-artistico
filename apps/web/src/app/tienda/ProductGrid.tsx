@@ -62,7 +62,8 @@ export default function ProductGrid({
       >
         <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-brand-night/40 pointer-events-none" />
         <input
-          type="text"
+          type="search"
+          autoComplete="off"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Buscar productos..."
