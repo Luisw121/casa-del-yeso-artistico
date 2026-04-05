@@ -4,7 +4,7 @@ import { Resend } from "resend";
 const getResend = () => new Resend(process.env.RESEND_API_KEY ?? "");
 
 const ADMIN_EMAIL = "casadelyesoartistico@hotmail.com";
-const FROM = "La Casa del Yeso Artístico <onboarding@resend.dev>";
+const FROM = "La Casa del Yeso Artístico <noreply@lacasadelyesoartistico.com>";
 
 export async function POST(req: Request) {
   const resend = getResend();
