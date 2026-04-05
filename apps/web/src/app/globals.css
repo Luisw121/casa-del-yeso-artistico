@@ -14,24 +14,24 @@
   --color-brand-gold:  #C9A96E;
   --color-brand-ivory: #F5F0EB;
 
-  /* Shadcn tokens mapped to brand */
-  --color-background:         #F5F0EB;
-  --color-foreground:         #1A1A2E;
-  --color-card:               #ffffff;
-  --color-card-foreground:    #1A1A2E;
-  --color-popover:            #ffffff;
-  --color-popover-foreground: #1A1A2E;
-  --color-primary:            #1A1A2E;
-  --color-primary-foreground: #F5F0EB;
-  --color-secondary:          #C9A96E;
-  --color-secondary-foreground: #1A1A2E;
-  --color-muted:              #ede8e3;
-  --color-muted-foreground:   #6b6460;
+  /* Shadcn tokens mapped to brand — Dark theme */
+  --color-background:         #0D0D1A;
+  --color-foreground:         #F5F0EB;
+  --color-card:               #1A1A2E;
+  --color-card-foreground:    #F5F0EB;
+  --color-popover:            #1A1A2E;
+  --color-popover-foreground: #F5F0EB;
+  --color-primary:            #C9A96E;
+  --color-primary-foreground: #0D0D1A;
+  --color-secondary:          #23233A;
+  --color-secondary-foreground: #F5F0EB;
+  --color-muted:              #1F1F33;
+  --color-muted-foreground:   #9E9AB0;
   --color-accent:             #C9A96E;
-  --color-accent-foreground:  #1A1A2E;
-  --color-destructive:        #dc2626;
-  --color-border:             #ddd8d3;
-  --color-input:              #ddd8d3;
+  --color-accent-foreground:  #0D0D1A;
+  --color-destructive:        #ef4444;
+  --color-border:             #2A2A42;
+  --color-input:              #2A2A42;
   --color-ring:               #C9A96E;
 
   /* Fonts */
