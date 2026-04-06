@@ -99,9 +99,8 @@ export default function HomePage() {
             custom={2}
             className="mt-6 mx-auto max-w-2xl text-brand-ivory/55 text-base leading-relaxed"
           >
-            Techos de gypsum, molduras y acabados de alta calidad — y también
-            tallamos figuras decorativas en yeso a la medida del cliente.
-            Más de una década creando espacios y piezas únicas.
+            Llevamos tus techos a resaltar en otro nivel, también tallamos
+            artesanías de la figura que tú desees. Somos lo que necesitas.
           </motion.p>
 
           <motion.div
