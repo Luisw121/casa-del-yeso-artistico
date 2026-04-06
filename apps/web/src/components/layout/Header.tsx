@@ -23,7 +23,7 @@ const menuItem = {
   hidden: { opacity: 0, x: 24 },
   show: (i: number) => ({
     opacity: 1, x: 0,
-    transition: { delay: i * 0.06, duration: 0.3, ease: "easeOut" },
+    transition: { delay: i * 0.06, duration: 0.3, ease: "easeOut" as const },
   }),
   exit: { opacity: 0, x: 24, transition: { duration: 0.15 } },
 };
