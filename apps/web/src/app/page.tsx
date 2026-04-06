@@ -99,7 +99,7 @@ export default function HomePage() {
             custom={2}
             className="mt-6 mx-auto max-w-2xl text-brand-ivory/55 text-base leading-relaxed"
           >
-            Especialistas en tallar artesanías a tu gusto y muchas artesanías más.
+            Especialistas en tallar artesanías a tu gusto y multiservicios.
           </motion.p>
 
           <motion.div
@@ -153,7 +153,7 @@ export default function HomePage() {
                   <Wrench className="h-3.5 w-3.5" />
                 </motion.span>
               </span>
-              Servicios
+              Multiservicios Inmediatos
             </Link>
           </motion.div>
 

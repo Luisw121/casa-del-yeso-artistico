@@ -31,7 +31,7 @@ export default function Header() {
           {/* Nombre de marca */}
           <Link href="/" className="font-heading text-sm sm:text-base font-bold tracking-wide text-white shrink-0">
             La Casa del{" "}
-            <span className="text-white/60">Yeso Artístico</span>
+            <span className="text-white/60">Yeso Artístico y Multiservicios</span>
           </Link>
 
           {/* Desktop nav */}
