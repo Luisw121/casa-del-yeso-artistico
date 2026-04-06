@@ -86,10 +86,10 @@ export default function HomePage() {
             custom={1}
             className="font-heading text-4xl sm:text-5xl lg:text-7xl font-bold text-brand-ivory leading-tight"
           >
-            Transformamos{" "}
-            <span className="text-brand-gold">espacios</span>
+            Traemos tu{" "}
+            <span className="text-brand-gold">figura favorita</span>
             <br />
-            y tallamos el arte
+            a la realidad
           </motion.h1>
 
           <motion.p
@@ -99,8 +99,7 @@ export default function HomePage() {
             custom={2}
             className="mt-6 mx-auto max-w-2xl text-brand-ivory/55 text-base leading-relaxed"
           >
-            Llevamos tus techos a resaltar en otro nivel, también tallamos
-            artesanías de la figura que tú desees. Somos lo que necesitas.
+            Especialistas en tallar artesanías a tu gusto y muchas artesanías más.
           </motion.p>
 
           <motion.div
