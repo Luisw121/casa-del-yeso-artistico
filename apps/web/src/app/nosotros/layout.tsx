@@ -3,12 +3,12 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Sobre Nosotros",
   description:
-    "Conoce la historia de La Casa del Yeso Artístico, líderes en decoración con gypsum y yeso artístico en Guatemala. Más de años de experiencia transformando espacios.",
+    "Conoce la historia de La Casa del Yeso Artístico, líderes en decoración con gypsum y yeso artístico en Loja Ecuador. Más de años de experiencia transformando espacios.",
   keywords: [
-    "empresa yeso artístico Guatemala",
+    "empresa yeso artístico Loja Ecuador",
     "quiénes somos",
     "historia decoración gypsum",
-    "expertos gypsum Guatemala",
+    "expertos gypsum Loja Ecuador",
   ],
   alternates: {
     canonical: "https://www.lacasadelyesoartistico.com/nosotros",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Sobre Nosotros | La Casa del Yeso Artístico",
     description:
-      "Líderes en decoración con gypsum y yeso artístico en Guatemala.",
+      "Líderes en decoración con gypsum y yeso artístico en Loja Ecuador.",
     url: "https://www.lacasadelyesoartistico.com/nosotros",
   },
 };

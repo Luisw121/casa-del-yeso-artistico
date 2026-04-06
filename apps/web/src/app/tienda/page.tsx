@@ -7,10 +7,10 @@ export const dynamic = "force-dynamic";
 export const metadata = {
   title: "Tienda de Materiales y Productos",
   description:
-    "Compra materiales de yeso artístico, molduras, placas de gypsum y herramientas para decoración en Guatemala. Envío a todo el país.",
+    "Compra materiales de yeso artístico, molduras, placas de gypsum y herramientas para decoración en Loja Ecuador. Envío a todo el país.",
   keywords: [
-    "tienda yeso artístico Guatemala",
-    "comprar gypsum Guatemala",
+    "tienda yeso artístico Loja Ecuador",
+    "comprar gypsum Loja Ecuador",
     "materiales decoración",
     "molduras yeso comprar",
     "placas gypsum precio",
@@ -20,7 +20,7 @@ export const metadata = {
   },
   openGraph: {
     title: "Tienda | La Casa del Yeso Artístico",
-    description: "Materiales de yeso artístico y gypsum en Guatemala.",
+    description: "Materiales de yeso artístico y gypsum en Loja Ecuador.",
     url: "https://www.lacasadelyesoartistico.com/tienda",
   },
 };

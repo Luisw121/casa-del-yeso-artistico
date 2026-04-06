@@ -25,18 +25,19 @@ export const metadata: Metadata = {
     template: "%s | La Casa del Yeso Artístico",
   },
   description:
-    "Especialistas en techos de gypsum, molduras decorativas y yeso artístico en Guatemala. Instalación profesional con garantía de obra. Solicita tu cotización gratis.",
+    "Especialistas en techos de gypsum, molduras decorativas y yeso artístico en Loja, Ecuador. Instalación profesional con garantía de obra. Solicita tu cotización gratis.",
   keywords: [
-    "yeso artístico Guatemala",
-    "techos gypsum Guatemala",
-    "molduras decorativas",
-    "instalación gypsum",
-    "decoración interior Guatemala",
+    "yeso artístico Loja",
+    "yeso artístico Ecuador",
+    "techos gypsum Loja",
+    "techos gypsum Ecuador",
+    "molduras decorativas Loja",
+    "instalación gypsum Ecuador",
+    "decoración interior Loja",
     "techo de yeso",
     "cielo falso gypsum",
     "molduras yeso",
-    "acabados decorativos",
-    "yeso artístico",
+    "acabados decorativos Ecuador",
   ],
   authors: [{ name: "La Casa del Yeso Artístico" }],
   creator: "La Casa del Yeso Artístico",
@@ -46,27 +47,27 @@ export const metadata: Metadata = {
     canonical: BASE_URL,
   },
   openGraph: {
-    title: "La Casa del Yeso Artístico | Techos Gypsum y Decoración en Guatemala",
+    title: "La Casa del Yeso Artístico | Techos Gypsum y Decoración en Loja, Ecuador",
     description:
-      "Especialistas en techos de gypsum, molduras decorativas y yeso artístico en Guatemala. Solicita tu cotización gratis.",
+      "Especialistas en techos de gypsum, molduras decorativas y yeso artístico en Loja, Ecuador. Solicita tu cotización gratis.",
     url: BASE_URL,
     siteName: "La Casa del Yeso Artístico",
-    locale: "es_GT",
+    locale: "es_EC",
     type: "website",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "La Casa del Yeso Artístico - Techos Gypsum Guatemala",
+        alt: "La Casa del Yeso Artístico - Techos Gypsum Loja Ecuador",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "La Casa del Yeso Artístico | Techos Gypsum Guatemala",
+    title: "La Casa del Yeso Artístico | Techos Gypsum Loja Ecuador",
     description:
-      "Especialistas en techos de gypsum y decoración artística en Guatemala.",
+      "Especialistas en techos de gypsum y decoración artística en Loja, Ecuador.",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -86,18 +87,19 @@ const jsonLd = {
   "@type": "LocalBusiness",
   name: "La Casa del Yeso Artístico",
   description:
-    "Especialistas en techos de gypsum, molduras decorativas y yeso artístico en Guatemala.",
+    "Especialistas en techos de gypsum, molduras decorativas y yeso artístico en Loja, Ecuador.",
   url: BASE_URL,
-  telephone: "+502",
+  telephone: "+593",
   address: {
     "@type": "PostalAddress",
-    addressCountry: "GT",
-    addressLocality: "Guatemala",
+    addressCountry: "EC",
+    addressLocality: "Loja",
+    addressRegion: "Loja",
   },
   geo: {
     "@type": "GeoCoordinates",
-    latitude: 14.6349,
-    longitude: -90.5069,
+    latitude: -3.9931,
+    longitude: -79.2042,
   },
   openingHoursSpecification: [
     {

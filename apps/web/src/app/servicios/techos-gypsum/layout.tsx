@@ -3,12 +3,12 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Techos de Gypsum y Servicios",
   description:
-    "Servicios profesionales de techos de gypsum, cielos falsos, molduras y acabados decorativos en Guatemala. Diseños personalizados con garantía de obra.",
+    "Servicios profesionales de techos de gypsum, cielos falsos, molduras y acabados decorativos en Loja Ecuador. Diseños personalizados con garantía de obra.",
   keywords: [
-    "techos gypsum Guatemala",
+    "techos gypsum Loja Ecuador",
     "cielo falso gypsum",
     "instalación gypsum",
-    "molduras decorativas Guatemala",
+    "molduras decorativas Loja Ecuador",
     "techo falso",
     "acabados gypsum",
   ],
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Techos de Gypsum y Servicios | La Casa del Yeso Artístico",
     description:
-      "Servicios profesionales de techos de gypsum y molduras en Guatemala. Solicita tu cotización gratis.",
+      "Servicios profesionales de techos de gypsum y molduras en Loja Ecuador. Solicita tu cotización gratis.",
     url: "https://www.lacasadelyesoartistico.com/servicios/techos-gypsum",
   },
 };
