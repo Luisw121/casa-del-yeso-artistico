@@ -153,7 +153,7 @@ export default function HomePage() {
                   <Wrench className="h-3.5 w-3.5" />
                 </motion.span>
               </span>
-              Multiservicios Inmediatos
+              Servicios Urgentes 24 Horas
             </Link>
           </motion.div>
 
