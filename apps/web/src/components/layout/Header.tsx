@@ -10,6 +10,7 @@ import CartDrawer from "@/components/cart/CartDrawer";
 
 const navLinks = [
   { label: "Servicios", href: "/servicios/techos-gypsum" },
+  { label: "Servicios Urgentes", href: "/servicios/urgentes", urgent: true },
   { label: "Tienda", href: "/tienda" },
   { label: "Nosotros", href: "/nosotros" },
   { label: "Contacto", href: "/contacto" },
@@ -40,7 +41,11 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-brand-ivory/80 transition-colors hover:text-brand-gold"
+                className={
+                  (link as { urgent?: boolean }).urgent
+                    ? "text-sm font-semibold text-brand-gold border border-brand-gold/40 px-3 py-1 rounded-full hover:bg-brand-gold/10 transition-colors"
+                    : "text-sm font-medium text-brand-ivory/80 transition-colors hover:text-brand-gold"
+                }
               >
                 {link.label}
               </Link>
@@ -114,7 +119,11 @@ export default function Header() {
                       key={link.href}
                       href={link.href}
                       onClick={() => setOpen(false)}
-                      className="text-base font-medium text-brand-ivory/80 hover:text-brand-gold transition-colors"
+                      className={
+                        (link as { urgent?: boolean }).urgent
+                          ? "text-base font-semibold text-brand-gold hover:text-brand-gold/80 transition-colors"
+                          : "text-base font-medium text-brand-ivory/80 hover:text-brand-gold transition-colors"
+                      }
                     >
                       {link.label}
                     </Link>
