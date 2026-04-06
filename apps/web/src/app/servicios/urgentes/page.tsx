@@ -3,7 +3,7 @@
 import { motion, type Variants, type Easing } from "framer-motion";
 import { Wrench, Zap, Droplets, CloudRain, MessageCircle } from "lucide-react";
 
-const WA_NUMBER = "593967021791";
+const WA_NUMBER = "593939603613";
 
 const servicios = [
   {

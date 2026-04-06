@@ -17,7 +17,7 @@ import {
   MessageCircle,
 } from "lucide-react";
 
-const WA_NUMBER = "593967021791";
+const WA_NUMBER = "593939603613";
 const WA_GYPSUM = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(
   "Hola, me interesa el servicio de *Tumbados de Gypsum de Alta Calidad*. ¿Pueden darme más información y una cotización?"
 )}`;
