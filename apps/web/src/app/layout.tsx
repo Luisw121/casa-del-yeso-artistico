@@ -89,7 +89,7 @@ const jsonLd = {
   description:
     "Especialistas en techos de gypsum, molduras decorativas y yeso artístico en Loja, Ecuador.",
   url: BASE_URL,
-  telephone: "+593",
+  telephone: "+593985070306",
   address: {
     "@type": "PostalAddress",
     addressCountry: "EC",
