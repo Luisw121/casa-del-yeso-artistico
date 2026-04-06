@@ -6,7 +6,7 @@ import { motion, type Variants, type Easing } from "framer-motion";
 import { useSession } from "next-auth/react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Star, ShieldCheck, Clock } from "lucide-react";
+import { ArrowRight, Star, ShieldCheck, Clock, ShoppingBag, Hammer, Wrench } from "lucide-react";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -46,14 +46,15 @@ export default function HomePage() {
     <>
       {/* Hero */}
       <section className="relative bg-brand-night overflow-hidden">
-        {/* Logo sublimado de fondo */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        {/* Logo sublimado de fondo — grande y centrado */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
           <Image
             src="/logo.png"
             alt=""
-            width={700}
-            height={500}
-            className="object-contain opacity-[0.04] select-none"
+            width={1100}
+            height={780}
+            className="object-contain opacity-[0.06] select-none scale-110"
+            style={{ filter: "grayscale(100%) brightness(2)" }}
           />
         </div>
 
@@ -101,22 +102,52 @@ export default function HomePage() {
             custom={3}
             className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Button
-              render={<Link href="/tienda" />}
-              size="lg"
-              className="bg-brand-ivory text-brand-night font-semibold hover:bg-white px-8"
+            {/* Botón Tienda — carrito animado */}
+            <Link
+              href="/tienda"
+              className="group inline-flex items-center gap-3 bg-white text-black font-semibold text-sm px-8 py-4 rounded-full hover:bg-white/90 transition-all duration-200 shadow-lg shadow-white/5"
             >
+              <span className="relative flex items-center justify-center w-6 h-6">
+                <motion.span
+                  animate={{ y: [0, -3, 0] }}
+                  transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute"
+                >
+                  <ShoppingBag className="h-4 w-4" />
+                </motion.span>
+                <motion.span
+                  animate={{ scale: [0, 1, 0], opacity: [0, 1, 0] }}
+                  transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
+                  className="absolute -top-1 -right-1 w-1.5 h-1.5 bg-black rounded-full"
+                />
+              </span>
               Tienda
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-            <Button
-              render={<Link href="/servicios/techos-gypsum" />}
-              size="lg"
-              variant="outline"
-              className="border-brand-ivory/40 !bg-transparent text-brand-ivory hover:!bg-white/10 hover:border-white px-8"
+              <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform duration-200" />
+            </Link>
+
+            {/* Botón Servicios — herramientas animadas */}
+            <Link
+              href="/servicios/techos-gypsum"
+              className="group inline-flex items-center gap-3 border border-white/20 text-white font-semibold text-sm px-8 py-4 rounded-full hover:border-white/50 hover:bg-white/5 transition-all duration-200"
             >
+              <span className="relative flex items-center justify-center w-6 h-6">
+                <motion.span
+                  animate={{ rotate: [0, -20, 0] }}
+                  transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute left-0"
+                >
+                  <Hammer className="h-3.5 w-3.5" />
+                </motion.span>
+                <motion.span
+                  animate={{ rotate: [0, 20, 0] }}
+                  transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
+                  className="absolute right-0"
+                >
+                  <Wrench className="h-3.5 w-3.5" />
+                </motion.span>
+              </span>
               Servicios
-            </Button>
+            </Link>
           </motion.div>
 
           {!isLoggedIn && (

@@ -28,14 +28,15 @@ export default function Header() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center">
+          {/* Logo — responsive móvil/escritorio */}
+          <Link href="/" className="flex items-center shrink-0">
             <Image
               src="/logo.png"
               alt="La Casa del Yeso Artístico"
-              width={140}
-              height={48}
-              className="h-12 w-auto object-contain"
+              width={160}
+              height={54}
+              className="h-9 w-auto sm:h-11 object-contain"
+              style={{ filter: "brightness(1.1)" }}
               priority
             />
           </Link>
