@@ -46,17 +46,33 @@ export default function HomePage() {
     <>
       {/* Hero */}
       <section className="relative bg-brand-night overflow-hidden">
-        {/* Logo sublimado de fondo — grande y centrado */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+        {/* Logo con efecto LED — glow pulsante de fondo */}
+        <motion.div
+          className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden"
+          animate={{ opacity: [0.7, 1, 0.7] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        >
+          {/* Halo de luz detrás del logo */}
+          <div
+            className="absolute w-[600px] h-[400px] rounded-full pointer-events-none"
+            style={{
+              background:
+                "radial-gradient(ellipse at center, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 40%, transparent 70%)",
+              filter: "blur(40px)",
+            }}
+          />
           <Image
             src="/logo.png"
             alt=""
-            width={1100}
-            height={780}
-            className="object-contain opacity-[0.06] select-none scale-110"
-            style={{ filter: "grayscale(100%) brightness(2)" }}
+            width={1000}
+            height={720}
+            className="object-contain select-none"
+            style={{
+              filter: "grayscale(100%) brightness(3) drop-shadow(0 0 30px rgba(255,255,255,0.25)) drop-shadow(0 0 80px rgba(255,255,255,0.1))",
+              opacity: 0.09,
+            }}
           />
-        </div>
+        </motion.div>
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 lg:py-36 text-center">
           <motion.div
