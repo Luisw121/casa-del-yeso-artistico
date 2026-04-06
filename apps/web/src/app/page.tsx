@@ -80,10 +80,15 @@ export default function HomePage() {
             initial="hidden"
             animate="show"
             custom={0}
+            className="flex flex-wrap items-center justify-center gap-2 mb-8"
           >
-            <Badge className="bg-brand-gold/20 text-brand-gold border-brand-gold/30 mb-6 text-xs tracking-widest uppercase">
-              Especialistas en Gypsum
-            </Badge>
+            <span className="inline-block text-[9px] font-semibold tracking-[0.35em] uppercase text-white/40 border border-white/10 px-4 py-1.5 rounded-full">
+              Gypsum & Techos
+            </span>
+            <span className="text-white/15 text-xs">·</span>
+            <span className="inline-block text-[9px] font-semibold tracking-[0.35em] uppercase text-white/40 border border-white/10 px-4 py-1.5 rounded-full">
+              Figuras talladas a medida
+            </span>
           </motion.div>
 
           <motion.h1
@@ -96,7 +101,11 @@ export default function HomePage() {
             Transformamos{" "}
             <span className="text-brand-gold">espacios</span>
             <br />
-            con arte y precisión
+            y tallamos el arte
+            <br />
+            <span className="text-brand-ivory/35 text-2xl sm:text-3xl lg:text-4xl font-medium tracking-wide">
+              en cada figura de yeso
+            </span>
           </motion.h1>
 
           <motion.p
@@ -104,11 +113,11 @@ export default function HomePage() {
             initial="hidden"
             animate="show"
             custom={2}
-            className="mt-6 mx-auto max-w-2xl text-brand-ivory/70 text-lg leading-relaxed"
+            className="mt-6 mx-auto max-w-2xl text-brand-ivory/55 text-base leading-relaxed"
           >
-            Techos de gypsum, molduras decorativas y acabados artísticos de
-            alta calidad. Más de una década transformando hogares y espacios
-            comerciales.
+            Techos de gypsum, molduras y acabados de alta calidad — y también
+            tallamos figuras decorativas en yeso a la medida del cliente.
+            Más de una década creando espacios y piezas únicas.
           </motion.p>
 
           <motion.div
