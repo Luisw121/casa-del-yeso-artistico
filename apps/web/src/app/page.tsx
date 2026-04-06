@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, type Variants, type Easing } from "framer-motion";
 import { useSession } from "next-auth/react";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Star, ShieldCheck, Clock, ShoppingBag, Hammer, Wrench } from "lucide-react";
 
@@ -222,48 +221,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA Banner */}
-      <section className="bg-brand-night border-t border-brand-gold/15">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 text-center">
-          <motion.h2
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            custom={0}
-            className="font-heading text-3xl sm:text-4xl font-bold text-brand-ivory"
-          >
-            ¿Listo para transformar tu espacio?
-          </motion.h2>
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            custom={1}
-            className="mt-3 text-brand-ivory/50 max-w-xl mx-auto"
-          >
-            Contáctanos hoy y recibe una cotización gratuita sin compromiso.
-          </motion.p>
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            custom={2}
-            className="mt-8"
-          >
-            <Button
-              render={<Link href="/contacto" />}
-              size="lg"
-              className="bg-brand-gold text-brand-night font-semibold hover:bg-brand-gold/90 px-10"
-            >
-              Contactar ahora
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </motion.div>
-        </div>
-      </section>
     </>
   );
 }
