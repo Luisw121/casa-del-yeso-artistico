@@ -10,6 +10,7 @@ import CartDrawer from "@/components/cart/CartDrawer";
 
 const navLinks = [
   { label: "Servicios", href: "/servicios/techos-gypsum" },
+  { label: "Tienda", href: "/tienda" },
   { label: "Nosotros", href: "/nosotros" },
   { label: "Contacto", href: "/contacto" },
 ];
