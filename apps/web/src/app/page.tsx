@@ -46,33 +46,21 @@ export default function HomePage() {
     <>
       {/* Hero */}
       <section className="relative bg-brand-night overflow-hidden">
-        {/* Logo con efecto LED — glow pulsante de fondo */}
-        <motion.div
-          className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden"
-          animate={{ opacity: [0.7, 1, 0.7] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        >
-          {/* Halo de luz detrás del logo */}
-          <div
-            className="absolute w-[600px] h-[400px] rounded-full pointer-events-none"
-            style={{
-              background:
-                "radial-gradient(ellipse at center, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 40%, transparent 70%)",
-              filter: "blur(40px)",
-            }}
-          />
+        {/* Imagen de fondo sublimada — responsive */}
+        <div className="absolute inset-0 overflow-hidden">
           <Image
-            src="/logo.png"
+            src="/hero-bg.jpg"
             alt=""
-            width={1000}
-            height={720}
-            className="object-contain select-none"
-            style={{
-              filter: "grayscale(100%) brightness(3) drop-shadow(0 0 30px rgba(255,255,255,0.25)) drop-shadow(0 0 80px rgba(255,255,255,0.1))",
-              opacity: 0.09,
-            }}
+            fill
+            className="object-cover object-center"
+            style={{ opacity: 0.38 }}
+            priority
           />
-        </motion.div>
+          {/* Overlay degradado para legibilidad del texto */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/40 to-black/75" />
+          {/* Viñeta lateral para profundidad */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30" />
+        </div>
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 lg:py-36 text-center">
           <motion.div
@@ -102,10 +90,6 @@ export default function HomePage() {
             <span className="text-brand-gold">espacios</span>
             <br />
             y tallamos el arte
-            <br />
-            <span className="text-brand-ivory/35 text-2xl sm:text-3xl lg:text-4xl font-medium tracking-wide">
-              en cada figura de yeso
-            </span>
           </motion.h1>
 
           <motion.p
