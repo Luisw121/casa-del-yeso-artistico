@@ -4,8 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, type Variants, type Easing } from "framer-motion";
 import { useSession } from "next-auth/react";
-import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Star, ShieldCheck, Clock, ShoppingBag, Hammer, Wrench } from "lucide-react";
+import { ArrowRight, ShoppingBag, Hammer, Wrench } from "lucide-react";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -15,27 +14,6 @@ const fadeUp: Variants = {
     transition: { delay: i * 0.15, duration: 0.6, ease: "easeOut" as Easing },
   }),
 };
-
-const features = [
-  {
-    icon: Star,
-    title: "Acabados Premium",
-    description:
-      "Materiales de primera calidad con técnicas artesanales que garantizan resultados extraordinarios.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Garantía de Obra",
-    description:
-      "Cada proyecto incluye garantía escrita y seguimiento post-instalación para tu tranquilidad.",
-  },
-  {
-    icon: Clock,
-    title: "Entrega a Tiempo",
-    description:
-      "Cumplimos los plazos acordados. Tu proyecto listo cuando lo necesitas, sin sorpresas.",
-  },
-];
 
 export default function HomePage() {
   const { status } = useSession();
@@ -175,52 +153,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Features */}
-      <section className="bg-[#0D0D1A] py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            custom={0}
-            className="text-center mb-14"
-          >
-            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-brand-ivory">
-              ¿Por qué elegirnos?
-            </h2>
-            <p className="mt-3 text-brand-ivory/50 max-w-xl mx-auto">
-              Cada detalle importa. Nuestro compromiso es con la excelencia en
-              cada obra.
-            </p>
-          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {features.map((feature, i) => (
-              <motion.div
-                key={feature.title}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true }}
-                custom={i + 1}
-                className="bg-[#111122] rounded-2xl p-8 border border-brand-ivory/5 hover:border-brand-gold/20 transition-colors"
-              >
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-brand-gold/10 mb-5">
-                  <feature.icon className="h-6 w-6 text-brand-gold" />
-                </div>
-                <h3 className="font-heading text-xl font-bold text-brand-ivory mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-brand-ivory/50 text-sm leading-relaxed">
-                  {feature.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-    </>
+</>
   );
 }
