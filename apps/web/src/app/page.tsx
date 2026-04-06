@@ -154,7 +154,7 @@ export default function HomePage() {
       <div className="bg-brand-gold/5 border-y border-brand-gold/10 overflow-hidden py-3">
         <motion.div
           animate={{ x: ["0%", "-50%"] }}
-          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" as Easing }}
           className="flex whitespace-nowrap gap-8"
         >
           {[...marqueeItems, ...marqueeItems].map((item, i) => (
