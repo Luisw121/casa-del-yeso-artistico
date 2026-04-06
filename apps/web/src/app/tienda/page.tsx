@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { db } from "@/lib/db";
 import ProductGrid from "./ProductGrid";
 
@@ -44,11 +45,47 @@ export default async function TiendaPage() {
       </section>
 
       {/* Catalog */}
-      <section className="bg-brand-ivory py-16">
+      <section className="bg-[#0A0A0A] py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <ProductGrid products={products} categories={categories} />
-          <p className="mt-10 text-center text-sm text-brand-night/40">
+          <p className="mt-10 text-center text-sm text-white/25">
             Catálogo en expansión — nuevos productos disponibles próximamente.
+          </p>
+        </div>
+      </section>
+
+      {/* Muestrario de Molduras — solo exhibición */}
+      <section className="bg-black py-20 border-t border-white/[0.06]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+          <div className="mb-10">
+            <p className="text-[9px] tracking-[0.4em] uppercase text-white/30 mb-3">
+              Muestrario
+            </p>
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-white">
+              Catálogo de Molduras
+            </h2>
+            <p className="mt-2 text-sm text-white/40 max-w-lg">
+              Diseños disponibles para tus techos y espacios. Consulta con nosotros para precios y disponibilidad.
+            </p>
+          </div>
+
+          <div className="relative rounded-2xl overflow-hidden border border-white/10">
+            <Image
+              src="/catalogo-molduras.jpg"
+              alt="Catálogo de molduras decorativas en yeso"
+              width={1400}
+              height={1400}
+              className="w-full h-auto object-contain"
+            />
+            {/* Etiqueta de solo muestra */}
+            <div className="absolute top-4 right-4 bg-black/70 backdrop-blur-sm text-white/70 text-[10px] tracking-widest uppercase border border-white/20 px-3 py-1.5 rounded-full">
+              Solo muestra
+            </div>
+          </div>
+
+          <p className="mt-5 text-center text-xs text-white/25">
+            ¿Te interesa algún diseño? <a href="/contacto" className="text-white/50 hover:text-white underline underline-offset-2 transition-colors">Contáctanos</a> para cotizar.
           </p>
         </div>
       </section>
