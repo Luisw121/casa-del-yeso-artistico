@@ -134,7 +134,7 @@ export default function HomePage() {
 
             {/* Botón Servicios — herramientas animadas */}
             <Link
-              href="/servicios/techos-gypsum"
+              href="/servicios/urgentes"
               className="group inline-flex items-center gap-3 border border-white/20 text-white font-semibold text-sm px-8 py-4 rounded-full hover:border-white/50 hover:bg-white/5 transition-all duration-200"
             >
               <span className="relative flex items-center justify-center w-6 h-6">
