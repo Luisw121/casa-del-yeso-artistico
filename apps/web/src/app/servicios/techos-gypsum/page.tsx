@@ -14,7 +14,13 @@ import {
   Grid3x3,
   Waves,
   ShoppingBag,
+  MessageCircle,
 } from "lucide-react";
+
+const WA_NUMBER = "593967021791";
+const WA_GYPSUM = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(
+  "Hola, me interesa el servicio de *Tumbados de Gypsum de Alta Calidad*. ¿Pueden darme más información y una cotización?"
+)}`;
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 28 },
@@ -98,7 +104,7 @@ export default function ServiciosPage() {
   const resto = servicios.slice(1);
 
   return (
-    <div className="min-h-screen bg-brand-night">
+    <div className="min-h-screen bg-[#050508]">
       {/* Hero */}
       <section className="py-20 lg:py-28 px-4">
         <div className="mx-auto max-w-4xl text-center">
@@ -128,7 +134,7 @@ export default function ServiciosPage() {
             initial="hidden"
             animate="show"
             custom={2}
-            className="mt-5 text-brand-ivory/50 text-lg max-w-xl mx-auto"
+            className="mt-5 text-brand-ivory/40 text-lg max-w-xl mx-auto"
           >
             Especialistas en yeso artístico, cemento y fibra de vidrio. Cada pieza hecha a mano con detalle y precisión.
           </motion.p>
@@ -144,24 +150,24 @@ export default function ServiciosPage() {
             whileInView="show"
             viewport={{ once: true }}
             custom={0}
-            className="relative overflow-hidden rounded-3xl border border-brand-gold/30 bg-gradient-to-br from-brand-gold/10 via-[#111122] to-[#111122] p-8 sm:p-10"
+            className="relative overflow-hidden rounded-3xl border border-brand-gold/25 bg-[#0c0c14] p-8 sm:p-10"
           >
-            {/* Glow decoration */}
-            <div className="absolute -top-12 -right-12 w-48 h-48 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -top-10 -right-10 w-52 h-52 bg-brand-gold/8 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-gold/20 to-transparent" />
 
             <div className="relative flex flex-col sm:flex-row sm:items-center gap-6">
-              <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-brand-gold/20 shrink-0">
+              <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-brand-gold/15 shrink-0">
                 <destacado.icon className="h-7 w-7 text-brand-gold" />
               </div>
               <div>
-                <span className="text-[10px] font-semibold tracking-widest uppercase text-brand-gold/70">
+                <span className="text-[10px] font-semibold tracking-widest uppercase text-brand-gold/60">
                   Servicio estrella
                 </span>
                 <h2 className="font-heading text-2xl sm:text-3xl font-bold text-brand-ivory mt-1">
                   {destacado.titulo}
                 </h2>
-                <p className="text-brand-gold/80 text-sm font-medium mt-0.5">{destacado.subtitulo}</p>
-                <p className="text-brand-ivory/55 mt-3 leading-relaxed">{destacado.descripcion}</p>
+                <p className="text-brand-gold/70 text-sm font-medium mt-0.5">{destacado.subtitulo}</p>
+                <p className="text-brand-ivory/45 mt-3 leading-relaxed">{destacado.descripcion}</p>
               </div>
             </div>
           </motion.div>
@@ -169,9 +175,9 @@ export default function ServiciosPage() {
       </section>
 
       {/* Grid de servicios */}
-      <section className="px-4 pb-24">
+      <section className="px-4 pb-16">
         <div className="mx-auto max-w-4xl">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {resto.map((s, i) => (
               <motion.div
                 key={s.titulo}
@@ -180,22 +186,64 @@ export default function ServiciosPage() {
                 whileInView="show"
                 viewport={{ once: true }}
                 custom={i}
-                className="group bg-[#111122] border border-brand-ivory/5 hover:border-brand-gold/30 rounded-2xl p-6 flex flex-col gap-4 transition-all duration-200 hover:bg-[#16162a]"
+                className="group bg-[#0a0a10] border border-white/5 hover:border-brand-gold/25 rounded-2xl p-5 flex flex-col gap-3 transition-all duration-200 hover:bg-[#0e0e18]"
               >
-                <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-brand-gold/10 group-hover:bg-brand-gold/20 transition-colors">
-                  <s.icon className="h-5 w-5 text-brand-gold" />
+                <div className="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-brand-gold/10 group-hover:bg-brand-gold/18 transition-colors">
+                  <s.icon className="h-4 w-4 text-brand-gold" />
                 </div>
                 <div>
-                  <h3 className="font-heading text-base font-bold text-brand-ivory group-hover:text-brand-gold transition-colors leading-snug">
+                  <h3 className="font-heading text-sm font-bold text-brand-ivory/90 group-hover:text-brand-gold transition-colors leading-snug">
                     {s.titulo}
                   </h3>
-                  <p className="text-brand-ivory/45 text-sm mt-2 leading-relaxed">
+                  <p className="text-white/30 text-xs mt-1.5 leading-relaxed">
                     {s.descripcion}
                   </p>
                 </div>
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Sección Gypsum — CTA WhatsApp */}
+      <section className="px-4 pb-24">
+        <div className="mx-auto max-w-4xl">
+          <motion.a
+            href={WA_GYPSUM}
+            target="_blank"
+            rel="noopener noreferrer"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            custom={0}
+            className="group relative overflow-hidden flex flex-col sm:flex-row sm:items-center justify-between gap-6 rounded-3xl border border-brand-gold/20 bg-[#0c0c14] p-8 sm:p-10 hover:border-brand-gold/50 transition-all duration-300 cursor-pointer"
+          >
+            {/* Glow */}
+            <div className="absolute -bottom-10 -left-10 w-52 h-52 bg-brand-gold/6 rounded-full blur-3xl pointer-events-none group-hover:bg-brand-gold/12 transition-all duration-500" />
+
+            <div className="relative flex items-center gap-5">
+              <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-brand-gold/15 group-hover:bg-brand-gold/25 transition-colors shrink-0">
+                <Home className="h-7 w-7 text-brand-gold" />
+              </div>
+              <div>
+                <span className="text-[10px] font-semibold tracking-widest uppercase text-brand-gold/60">
+                  Servicio especializado
+                </span>
+                <h2 className="font-heading text-xl sm:text-2xl font-bold text-brand-ivory mt-1">
+                  Tumbados de Gypsum de Alta Calidad
+                </h2>
+                <p className="text-white/35 text-sm mt-1.5 leading-relaxed max-w-md">
+                  Transformamos techos con gypsum premium. Diseños a medida, acabados impecables y entrega puntual.
+                </p>
+              </div>
+            </div>
+
+            <div className="relative flex items-center gap-2 bg-brand-gold text-brand-night font-semibold text-sm px-6 py-3 rounded-full group-hover:bg-brand-gold/90 transition-colors shrink-0 self-start sm:self-center">
+              <MessageCircle className="h-4 w-4" />
+              Consultar por WhatsApp
+            </div>
+          </motion.a>
         </div>
       </section>
     </div>
