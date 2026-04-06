@@ -1,141 +1,203 @@
 "use client";
 
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle, Zap, Hammer, Palette, Home } from "lucide-react";
+import { motion, type Variants, type Easing } from "framer-motion";
+import {
+  Sparkles,
+  Flower2,
+  RefreshCw,
+  Home,
+  Columns,
+  Flower,
+  StretchVertical,
+  Fence,
+  Layers,
+  Grid3x3,
+  Waves,
+  ShoppingBag,
+} from "lucide-react";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 28 },
   show: (i: number) => ({
-    opacity: 1, y: 0,
-    transition: { delay: i * 0.12, duration: 0.55, ease: "easeOut" as const },
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.08, duration: 0.55, ease: "easeOut" as Easing },
   }),
 };
 
-const services = [
+const servicios = [
+  {
+    icon: Sparkles,
+    titulo: "Creación de Molduras a su Gusto",
+    subtitulo: "Imagen o figura personalizada",
+    descripcion:
+      "Diseñamos y fabricamos molduras únicas basadas en la imagen o figura que usted elija. Su idea, nuestra artesanía.",
+    destacado: true,
+  },
+  {
+    icon: Flower2,
+    titulo: "Ornamentos Decorativos",
+    descripcion: "Fabricación de ornamentos decorativos para interiores y exteriores con acabados de alta calidad.",
+  },
+  {
+    icon: RefreshCw,
+    titulo: "Restauración de Artesanías",
+    descripcion: "Devolvemos la vida a sus piezas artesanales dañadas o deterioradas con técnicas especializadas.",
+  },
   {
     icon: Home,
-    title: "Techos de Gypsum",
-    description:
-      "Remodelamos y diseñamos techos de gypsum para hogares y espacios comerciales. Trabajamos con molduras decorativas, cielos rasos, divisiones y acabados personalizados que transforman cualquier ambiente.",
-    features: ["Cielos rasos lisos y texturizados", "Molduras decorativas", "Divisiones interiores", "Reparaciones y mantenimiento"],
+    titulo: "Piezas para el Hogar",
+    descripcion: "Fabricación de piezas especiales para la decoración de su hogar, adaptadas a cada espacio.",
   },
   {
-    icon: Zap,
-    title: "Servicios Eléctricos",
-    description:
-      "Instalaciones eléctricas residenciales y comerciales. Desde puntos de luz y tomacorrientes hasta tableros de distribución. Trabajamos con seguridad y materiales certificados.",
-    features: ["Instalaciones eléctricas nuevas", "Reparaciones y mantenimiento", "Tableros de distribución", "Iluminación LED"],
+    icon: Columns,
+    titulo: "Cornisas, Columnas, Arcos y Bóvedas",
+    descripcion:
+      "Fabricación de cornisas, columnas, arcos, bóvedas y placas 3D en yeso, cemento y fibra de vidrio.",
   },
   {
-    icon: Palette,
-    title: "Artesanías Decorativas",
-    description:
-      "Figuras y piezas artesanales elaboradas en yeso artístico. Elementos decorativos únicos para interiores: ángeles, molduras, columnas, bajorrelieves y piezas a medida.",
-    features: ["Figuras decorativas en yeso", "Molduras a medida", "Piezas personalizadas", "Arte en relieve"],
+    icon: Flower,
+    titulo: "Maceteros a Medida",
+    descripcion:
+      "Maceteros personalizados en yeso, cemento y fibra de vidrio. Resistentes, elegantes y únicos.",
   },
   {
-    icon: Hammer,
-    title: "Multiservicios de Construcción",
-    description:
-      "Somos una empresa multiservicios. Además del gypsum y la electricidad, brindamos soluciones integrales de construcción y remodelación para que tu espacio quede exactamente como lo imaginas.",
-    features: ["Remodelaciones integrales", "Pintura y acabados", "Instalaciones sanitarias", "Asesoría de diseño"],
+    icon: StretchVertical,
+    titulo: "Postes en Diferentes Medidas",
+    descripcion: "Fabricación de postes decorativos y estructurales en distintas medidas según su necesidad.",
+  },
+  {
+    icon: Fence,
+    titulo: "Cercas Decorativas",
+    descripcion: "Diseño y fabricación de cercas decorativas que combinan estética y durabilidad.",
+  },
+  {
+    icon: Grid3x3,
+    titulo: "Bordillos y Bloques Decorativos",
+    descripcion: "Fabricación de bordillos y bloques decorativos para exteriores, jardines y andenes.",
+  },
+  {
+    icon: Layers,
+    titulo: "Balaustros y Pasamanos",
+    descripcion: "Fabricación de balaustros y pasamanos con diseños clásicos y modernos a pedido.",
+  },
+  {
+    icon: Waves,
+    titulo: "Fabricación para Piscinas",
+    descripcion: "Elementos decorativos y estructurales fabricados especialmente para el entorno de piscinas.",
+  },
+  {
+    icon: ShoppingBag,
+    titulo: "Artesanías",
+    descripcion: "Elaboración de artesanías en yeso artístico: figuras, esculturas y piezas decorativas únicas.",
   },
 ];
 
 export default function ServiciosPage() {
+  const destacado = servicios[0];
+  const resto = servicios.slice(1);
+
   return (
-    <>
+    <div className="min-h-screen bg-brand-night">
       {/* Hero */}
-      <section className="bg-brand-night py-20 lg:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <motion.p
-            variants={fadeUp} initial="hidden" animate="show" custom={0}
-            className="text-brand-gold text-sm font-semibold uppercase tracking-widest mb-4"
+      <section className="py-20 lg:py-28 px-4">
+        <div className="mx-auto max-w-4xl text-center">
+          <motion.span
+            variants={fadeUp}
+            initial="hidden"
+            animate="show"
+            custom={0}
+            className="inline-block text-[10px] font-semibold tracking-[0.35em] uppercase text-brand-gold border border-brand-gold/30 px-4 py-1.5 rounded-full mb-6"
           >
             Nuestros Servicios
-          </motion.p>
+          </motion.span>
+
           <motion.h1
-            variants={fadeUp} initial="hidden" animate="show" custom={1}
-            className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-brand-ivory leading-tight"
+            variants={fadeUp}
+            initial="hidden"
+            animate="show"
+            custom={1}
+            className="font-heading text-5xl sm:text-6xl lg:text-7xl font-bold text-brand-ivory leading-tight"
           >
-            Soluciones completas para
-            <br />
-            <span className="text-brand-gold">tu espacio</span>
+            ¿Qué{" "}
+            <span className="text-brand-gold">fabricamos?</span>
           </motion.h1>
+
           <motion.p
-            variants={fadeUp} initial="hidden" animate="show" custom={2}
-            className="mt-5 mx-auto max-w-2xl text-brand-ivory/70 text-lg"
+            variants={fadeUp}
+            initial="hidden"
+            animate="show"
+            custom={2}
+            className="mt-5 text-brand-ivory/50 text-lg max-w-xl mx-auto"
           >
-            Más de 12 años transformando hogares y espacios comerciales en Loja, Ecuador.
-            Gypsum, electricidad, artesanías y mucho más.
+            Especialistas en yeso artístico, cemento y fibra de vidrio. Cada pieza hecha a mano con detalle y precisión.
           </motion.p>
-          <motion.div variants={fadeUp} initial="hidden" animate="show" custom={3} className="mt-8">
-            <Button
-              render={<Link href="/contacto" />}
-              size="lg"
-              className="bg-brand-gold text-brand-night font-semibold hover:bg-brand-gold/90 px-8"
-            >
-              Solicitar cotización
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
+        </div>
+      </section>
+
+      {/* Tarjeta destacada */}
+      <section className="px-4 pb-6">
+        <div className="mx-auto max-w-4xl">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            custom={0}
+            className="relative overflow-hidden rounded-3xl border border-brand-gold/30 bg-gradient-to-br from-brand-gold/10 via-[#111122] to-[#111122] p-8 sm:p-10"
+          >
+            {/* Glow decoration */}
+            <div className="absolute -top-12 -right-12 w-48 h-48 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="relative flex flex-col sm:flex-row sm:items-center gap-6">
+              <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-brand-gold/20 shrink-0">
+                <destacado.icon className="h-7 w-7 text-brand-gold" />
+              </div>
+              <div>
+                <span className="text-[10px] font-semibold tracking-widest uppercase text-brand-gold/70">
+                  Servicio estrella
+                </span>
+                <h2 className="font-heading text-2xl sm:text-3xl font-bold text-brand-ivory mt-1">
+                  {destacado.titulo}
+                </h2>
+                <p className="text-brand-gold/80 text-sm font-medium mt-0.5">{destacado.subtitulo}</p>
+                <p className="text-brand-ivory/55 mt-3 leading-relaxed">{destacado.descripcion}</p>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Services grid */}
-      <section className="bg-brand-ivory py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {services.map((service, i) => (
+      {/* Grid de servicios */}
+      <section className="px-4 pb-24">
+        <div className="mx-auto max-w-4xl">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {resto.map((s, i) => (
               <motion.div
-                key={service.title}
-                variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} custom={i}
-                className="bg-white rounded-2xl p-8 shadow-sm border border-brand-night/5"
+                key={s.titulo}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                custom={i}
+                className="group bg-[#111122] border border-brand-ivory/5 hover:border-brand-gold/30 rounded-2xl p-6 flex flex-col gap-4 transition-all duration-200 hover:bg-[#16162a]"
               >
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-brand-gold/10 mb-5">
-                  <service.icon className="h-6 w-6 text-brand-gold" />
+                <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-brand-gold/10 group-hover:bg-brand-gold/20 transition-colors">
+                  <s.icon className="h-5 w-5 text-brand-gold" />
                 </div>
-                <h2 className="font-heading text-2xl font-bold text-brand-night mb-3">
-                  {service.title}
-                </h2>
-                <p className="text-brand-night/60 text-sm leading-relaxed mb-5">
-                  {service.description}
-                </p>
-                <ul className="space-y-2">
-                  {service.features.map((f) => (
-                    <li key={f} className="flex items-center gap-2 text-sm text-brand-night/80">
-                      <CheckCircle className="h-4 w-4 text-brand-gold shrink-0" />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
+                <div>
+                  <h3 className="font-heading text-base font-bold text-brand-ivory group-hover:text-brand-gold transition-colors leading-snug">
+                    {s.titulo}
+                  </h3>
+                  <p className="text-brand-ivory/45 text-sm mt-2 leading-relaxed">
+                    {s.descripcion}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
-
-      {/* CTA */}
-      <section className="bg-brand-night py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-heading text-3xl font-bold text-brand-ivory mb-4">
-            ¿Listo para empezar tu proyecto?
-          </h2>
-          <p className="text-brand-ivory/60 mb-8 max-w-lg mx-auto">
-            Contáctanos y te damos una cotización gratuita sin compromiso. Trabajamos en Loja y sus alrededores.
-          </p>
-          <Button
-            render={<Link href="/contacto" />}
-            size="lg"
-            className="bg-brand-gold text-brand-night font-semibold hover:bg-brand-gold/90 px-8"
-          >
-            Hablar con nosotros
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
-        </div>
-      </section>
-    </>
+    </div>
   );
 }
